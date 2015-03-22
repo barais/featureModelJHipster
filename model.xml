@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel chosenLayoutAlgorithm="1">
+		<struct>
+			<and abstract="true" mandatory="true" name="jhipster">
+				<and abstract="true" mandatory="true" name="Base">
+					<alt abstract="true" name="Java">
+						<feature mandatory="true" name="Java7"/>
+						<feature mandatory="true" name="Java8"/>
+					</alt>
+					<alt abstract="true" name="authentification">
+						<feature mandatory="true" name="HTTP Session"/>
+						<feature mandatory="true" name="OAuth2">
+							<description>
+								stateless, with an OAuth2 server implementation
+							</description>
+						</feature>
+						<feature mandatory="true" name="Token-based">
+							<description>
+								stateless, with a token
+							</description>
+						</feature>
+					</alt>
+					<alt abstract="true" name="database type">
+						<and mandatory="true" name="SQL">
+							<alt abstract="true" mandatory="true" name="ProductionDataBase">
+								<feature mandatory="true" name="MySQL"/>
+								<feature mandatory="true" name="PostgresSQL"/>
+							</alt>
+							<alt abstract="true" mandatory="true" name="DeveloppementDataBase">
+								<feature mandatory="true" name="H2"/>
+								<feature mandatory="true" name="LocalMySQL"/>
+							</alt>
+							<alt name="Hibernate 2nd level cache">
+								<feature mandatory="true" name="EHCache"/>
+								<feature mandatory="true" name="HazelCast"/>
+							</alt>
+						</and>
+						<feature mandatory="true" name="MongoDB"/>
+						<feature mandatory="true" name="Cassandra"/>
+					</alt>
+					<feature name="clustered HTTP sessions"/>
+					<feature name="WebSocket"/>
+					<and abstract="true" name="Build">
+						<alt abstract="true" name="Server">
+							<feature mandatory="true" name="Maven"/>
+							<feature mandatory="true" name="Graddle"/>
+						</alt>
+						<alt abstract="true" name="Client">
+							<feature mandatory="true" name="grunt"/>
+							<feature mandatory="true" name="gulp.js"/>
+						</alt>
+					</and>
+					<feature name="UseCompass"/>
+				</and>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<imp>
+					<var>OAuth2</var>
+					<imp>
+						<conj>
+							<not>
+								<var>Cassandra</var>
+							</not>
+							<var>Cassandra</var>
+						</conj>
+						<not>
+							<var>OAuth2</var>
+						</not>
+					</imp>
+				</imp>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>
