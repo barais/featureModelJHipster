@@ -1,6 +1,6 @@
 # featureModelJHipster
 
-This project provides a feature model for [JHipster](http://jhipster.github.io/) framework. You can use [FeatureIDE](http://wwwiti.cs.uni-magdeburg.de/iti_db/research/featureide/) to view it. It also provides a shell script (ge.sh) to automatically wrap jhipster console. 
+This project provides a feature model for [JHipster](http://jhipster.github.io/) framework. You can use [FeatureIDE](http://wwwiti.cs.uni-magdeburg.de/iti_db/research/featureide/) to view it. It also provides a shell script (gen.sh only work for linux) to automatically wrap jhipster console. 
 
 Next you can use [UML2JHipster](https://github.com/barais/genmymodeljhipstergenerator) generator to create your business model. 
 
